@@ -15,7 +15,7 @@ func GetFile(imgUrl string,imgPath string) {
     fileName := path.Base(imgUrl)
 	//设置30秒超时
     client := http.Client{
-    	Timeout: 30 * time.Second,
+    	Timeout: 60 * time.Second,
     }
     res, err := client.Get(imgUrl)
     if err != nil {
