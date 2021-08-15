@@ -11,11 +11,11 @@ import (
 )
 
 //下载文件
-func GetFile(imgUrl string,imgPath string) {
+func GetFile(imgUrl string,imgPath string,timeOut int) {
     fileName := path.Base(imgUrl)
-	//设置30秒超时
+	//设置120秒超时
     client := http.Client{
-    	Timeout: 60 * time.Second,
+    	Timeout: time.Duration(timeOut) * time.Second,
     }
     res, err := client.Get(imgUrl)
     if err != nil {
